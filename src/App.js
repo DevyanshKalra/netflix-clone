@@ -21,10 +21,10 @@ function App() {
 
           <div className="nav">
               
-              <img src={Logo} className="netflixLogo py-2 mt-3 mr-auto ml-5 " />
+              <img src={Logo} className="netflixLogo py-2 mt-3 mr-auto ml-5 flex-row-reverse " />
               
             
-            <div className="inline-flex ml-5">
+            <div className="inline-flex ml-5 ">
             <button className="langButton flex justify-center items-center p-1 m-5 ">
               <BiWorld className="flex self-center m-1" />
               <span className="px-0.5">English</span>
@@ -36,7 +36,7 @@ function App() {
             </div>
           </div>
 
-          <div className="heroTextContainer z-2 w-full mt-11 flex flex-col justify-center self-center items-center">
+          <div className="heroTextContainer  z-2 w-full mt-11 flex flex-col justify-center self-center items-center">
             <br/>
             <br/>
             <p className="text-3xl md:text-6xl  sm:text-4xl  ">Unlimited movies, TV <br/> shows and more.</p>
