@@ -18,7 +18,10 @@
 .hidden{
     display: none;
 }
-
+/* apparently not working with tailwind so added manufally */
+.flex-row-reverse{
+    flex-direction: row-reverse;
+}
 .accordianContent{
     max-height: 0px;
     /* overflow: hidden; */
