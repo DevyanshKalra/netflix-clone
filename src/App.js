@@ -49,9 +49,9 @@ function App() {
           <br/>
           <div className="emailContainer flex justify-center ">
             
-              <input placeholder="Email Address" className="emailInput p-3"/>
+              <input placeholder="Email Address" className="  emailInput p-3"/>
               <button className=" getButton flex justify-center  p-3 self-center">
-              <span className="text-base md:text-xl text-white font-semibold">Get Started &gt; </span>
+              <span className="  sm:text-base md:text-xl text-white font-semibold">Get Started &gt; </span>
             </button>
             
           </div>

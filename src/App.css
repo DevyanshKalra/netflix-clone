@@ -82,6 +82,9 @@
   border-radius: 2px;
 }
 @media screen and (max-width:768px) {
+  .emailInput{
+    width: 300px;
+  }
   .netflixLogo{
     height: 50px;
   }
@@ -96,7 +99,10 @@
     width: 100%;
   }
 }
-@media screen and (max-width:412px) {
+@media screen and (max-width:426px) {
+  .emailInput{
+    width: 200px;
+  }
   .netflixLogo{
     height: 40px;
   }
