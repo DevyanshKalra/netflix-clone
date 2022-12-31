@@ -1,0 +1,14 @@
+.cardContainer{
+    height: 450px;
+    background-color: black;
+    border-bottom: 8px solid #222;
+}
+.gifImage{
+    width: 500px;
+}
+@media screen and (max-width:768px){
+    .cardContainer{
+        height: 600px;
+        flex-direction: column;
+    }
+}
