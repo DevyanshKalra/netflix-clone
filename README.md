@@ -2,6 +2,8 @@
 
 Made with Reactjs and TailwindCSS
 
+update 1 : added Light theme mode for daylight hours of the day
+
 
 ### `npm start`
 
