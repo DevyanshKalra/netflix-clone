@@ -1,6 +1,6 @@
 .accordianContainer{
     
-    background: #303030;
+    
     justify-self: center;
     
     text-align: left;
@@ -26,8 +26,16 @@
     /* animation: open-accordian 5s linear forwards; */
 }
 .accordianContentText{
-    
+    animation: text-visible 1s ease-in forwards;
     border-top: 2px solid white;
+}
+@keyframes text-visible {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 @keyframes accordianClose {
     0%{

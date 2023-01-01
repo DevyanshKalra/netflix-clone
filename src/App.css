@@ -28,11 +28,12 @@
 .faqContainer{
   height: auto;
   padding-bottom: 5%;
-  background-color: black;
+  
   border-bottom: 8px solid #222;
 }
 .faqWrapper{
-  width: 600px;
+  
+  width: 700px;
 }
 .nav{
   position: absolute;
@@ -47,7 +48,7 @@
   position: relative;
 }
 .netflixLogo{
-  
+  cursor: pointer;
   z-index: 1;
   height: 60px;
 }
@@ -93,7 +94,7 @@
     font-size: 3vw;
   }
 }
-@media screen and (max-width:624px) {
+@media screen and (max-width:694px) {
   .faqWrapper{
 
     width: 100%;

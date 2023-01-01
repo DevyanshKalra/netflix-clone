@@ -1,27 +1,51 @@
+import {React , useEffect, useState} from 'react';
 import "./App.css";
+
 import { BiWorld } from "react-icons/bi";
 import { RiArrowDropDownLine } from "react-icons/ri";
+
 import Card from "./Components/Card"
 import FAQ from "./Components/FAQ"
+import { ThemeContext } from './Contexts/ThemeContext';
 
 import Logo from "./Assets/Images/logo.png";
 import Hero from "./Assets/Images/hero.jpg";
-import TV from "./Assets/Images/card1.png"
-import Phone from "./Assets/Images/card2.jpg"
+import HeroLight from "./Assets/Images/herolight.jpg";
+import TV from "./Assets/Images/card1light.png"
+import Phone from "./Assets/Images/card2light.png"
 import Media from "./Assets/Images/card3.png"
-import Kids from "./Assets/Images/card4.png"
+import Kids from "./Assets/Images/card4light.png"
 
 function App() {
+  const [lightMode,setLightMode]=useState(true)
+  const [time,setTime]=useState()
+  function fetchTime (){
+    const today = new Date()
+    setTime(today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds());
+  }
+  useEffect(()=>{
+    var timer = setInterval((()=>fetchTime()),1000)
+    console.log(time)
+    {(time>"19:0:0")?setLightMode(false):setLightMode(true)}
+    return function cleanup(){
+      clearInterval(timer)
+    }
+  },[time])
+  
   return (
     <div className="App">
+      <ThemeContext.Provider value = {{lightMode}}>
       <div className="heroSection ">
-        <img src={Hero} className="heroBg " />
+        {lightMode===true?
+        <img src={HeroLight} className="heroBg " />
+        :<img src={Hero} className="heroBg " />}
+        
 
         <div className="heroBgGrad ">
 
           <div className="nav">
               
-              <img src={Logo} className="netflixLogo py-2 mt-3 mr-auto ml-5 flex-row-reverse " />
+              <img src={Logo} className="netflixLogo py-2 mt-3 mr-auto ml-5 flex-row-reverse " onClick={()=>setLightMode(!lightMode)}/>
               
             
             <div className="inline-flex ml-5 ">
@@ -35,7 +59,6 @@ function App() {
             </button>
             </div>
           </div>
-
           <div className="heroTextContainer  z-2 w-full mt-11 flex flex-col justify-center self-center items-center">
             <br/>
             <br/>
@@ -61,9 +84,9 @@ function App() {
       <Card image={Phone} title="Download your shows to watch offline." content={<span>Save your favourites easily and always have<br/> something to watch.</span>} reverse={true}/>
       <Card image={Media} title="Watch everywhere." content={<span>Stream unlimited movies and TV shows on <br/> your phone, tablet, laptop, and TV.</span>} reverse={false}/>
       <Card image={Kids} title="Create profiles for children." content={<span>Send children on adventures with their<br/> favourite characters in a space made just for<br/> them—free with your membership.</span>} reverse={true}/>
-      <div className="faqContainer flex flex-col  ">
+      <div className={`faqContainer  flex flex-col ${lightMode===true?"bg-white":"bg-black"} `}>
           <div className='faqHeader p-3'>
-                <span className='text-3xl md:text-5xl  sm:text-4xl text-white font-semibold '>Frequently Asked Questions</span>
+                <span className={`text-3xl md:text-5xl  sm:text-4xl ${lightMode===true?"text-black":"text-white"} font-semibold `}>Frequently Asked Questions</span>
           </div>
           <div className="faqWrapper mx-auto m-5">
             <FAQ question="What is Netflix?" answer={<span className=""><br/>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.<br/><br/>You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</span>}/>
@@ -74,9 +97,9 @@ function App() {
             <FAQ question="Is Netflix good for kids?" answer={<span className=""><br/>Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.</span>}/>
             
           </div>
-
+          
       </div>
-    
+      </ThemeContext.Provider>
     </div>
   );
 }
