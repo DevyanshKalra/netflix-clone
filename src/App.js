@@ -17,7 +17,7 @@ import Media from "./Assets/Images/card3.png"
 import Kids from "./Assets/Images/card4light.png"
 
 function App() {
-  const [lightMode,setLightMode]=useState(true)
+  const [lightMode,setLightMode]=useState()
   const [time,setTime]=useState()
   function fetchTime (){
     const today = new Date()
@@ -26,7 +26,7 @@ function App() {
   useEffect(()=>{
     var timer = setInterval((()=>fetchTime()),1000)
     console.log(time)
-    {(time>"19:0:0" && time<"6:0:0")?setLightMode(false):setLightMode(true)}
+    {(time>"19:0:0" || time<"6:0:0")?setLightMode(false):setLightMode(true)}
     return function cleanup(){
       clearInterval(timer)
     }
