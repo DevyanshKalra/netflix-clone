@@ -1,0 +1,96 @@
+.heroSection {
+  display: flex;
+  object-fit: contain;
+  height: 720px;
+}
+.heroBg {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 720px;
+  object-fit: cover;
+}
+.heroBgGrad {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8) 0,
+    transparent 60%,
+    rgba(0, 0, 0, 0.8)
+  );
+  border-bottom: 8px solid #222;
+}
+.nav {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+  /* background-color: aqua; */
+  height: 10%;
+  color: white;
+  position: relative;
+}
+.netflixLogo {
+  cursor: pointer;
+  z-index: 1;
+  height: 60px;
+}
+
+.langButton {
+  border: solid 1px #fff;
+  color: white;
+}
+.dropIcon {
+  font-size: 1.3rem;
+}
+.signButton {
+  background-color: red;
+  border-radius: 5px;
+}
+
+.heroTextContainer {
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+.emailInput {
+  width: 400px;
+}
+.getButton {
+  background-color: red;
+  border-radius: 2px;
+}
+@media screen and (max-width: 768px) {
+  .emailInput {
+    width: 300px;
+  }
+  .netflixLogo {
+    height: 50px;
+  }
+  .nav button {
+    margin-bottom: 5px;
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 694px) {
+  .faqWrapper {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 426px) {
+  .emailInput {
+    width: 200px;
+  }
+  .netflixLogo {
+    height: 40px;
+  }
+  .nav button {
+    margin-bottom: 5px;
+    font-size: 3vw;
+  }
+}
