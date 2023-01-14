@@ -26,7 +26,7 @@ function App() {
   useEffect(()=>{
     var timer = setInterval((()=>fetchTime()),1000)
     console.log(time)
-    {(time>"19:0:0" || time<"6:0:0")?setLightMode(false):setLightMode(true)}
+    {(time>"19:0:0" && time<"6:0:0")?setLightMode(false):setLightMode(true)}
     return function cleanup(){
       clearInterval(timer)
     }
