@@ -6,11 +6,10 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 import Card from "./Components/Card";
 import FAQ from "./Components/FAQ";
-import Hero from "./Components/Hero";
 import { ThemeContext } from "./Contexts/ThemeContext";
 
 import Logo from "./Assets/Images/logo.png";
-import HeroBg from "./Assets/Images/hero.jpg";
+import Hero from "./Assets/Images/hero.jpg";
 import HeroLight from "./Assets/Images/herolight.jpg";
 import TV from "./Assets/Images/card1light.png";
 import Phone from "./Assets/Images/card2light.png";
@@ -42,8 +41,59 @@ function App() {
   return (
     <div className="App">
       <ThemeContext.Provider value={{ lightMode }}>
-        <Hero />
-        {/* Card Section */}
+        <div className="heroSection ">
+          {lightMode === true ? (
+            <img src={HeroLight} className="heroBg " />
+          ) : (
+            <img src={Hero} className="heroBg " />
+          )}
+
+          <div className="heroBgGrad ">
+            <div className="nav">
+              <img
+                src={Logo}
+                className="netflixLogo py-2 mt-3 mr-auto ml-5 flex-row-reverse "
+                onClick={() => setLightMode(!lightMode)}
+              />
+
+              <div className="inline-flex ml-5 ">
+                <button className="langButton flex justify-center items-center p-1 m-5 ">
+                  <BiWorld className="flex self-center m-1" />
+                  <span className="px-0.5">English</span>
+                  <RiArrowDropDownLine className=" dropIcon flex self-center" />
+                </button>
+                <button className="signButton flex justify-center m-5 p-1 px-3 self-center">
+                  <span>Sign In</span>
+                </button>
+              </div>
+            </div>
+            <div className="heroTextContainer  z-2 w-full mt-11 flex flex-col justify-center self-center items-center">
+              <br />
+              <br />
+              <p className="text-3xl md:text-6xl  sm:text-4xl  ">
+                Unlimited movies, TV <br /> shows and more.
+              </p>
+              <br />
+              <p className="text-2xl md:text-4xl sm:text-3xl ">
+                Watch anywhere. Cancel anytime.
+              </p>
+              <br />
+              <p className="text-xl md:text-2xl sm:text-2xl ">
+                Ready to watch? Enter your email to create or restart your
+                membership.
+              </p>
+            </div>
+            <br />
+            <div className="emailContainer flex justify-center ">
+              <input placeholder="Email Address" className="  emailInput p-3" />
+              <button className=" getButton flex justify-center  p-3 self-center">
+                <span className="  sm:text-base md:text-xl text-white font-semibold">
+                  Get Started &gt;{" "}
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
         <Card
           image={TV}
           title="Enjoy on your TV."
@@ -89,8 +139,6 @@ function App() {
           }
           reverse={true}
         />
-
-        {/* FAQ Section */}
         <div
           className={`faqContainer  flex flex-col ${
             lightMode === true ? "bg-white" : "bg-black"
@@ -105,7 +153,6 @@ function App() {
               Frequently Asked Questions
             </span>
           </div>
-
           <div className="faqWrapper mx-auto m-5">
             <FAQ
               question="What is Netflix?"
